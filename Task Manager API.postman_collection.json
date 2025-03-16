@@ -1,0 +1,428 @@
+{
+	"info": {
+		"_postman_id": "f659579f-2702-45be-a92f-7fcb96c3b120",
+		"name": "Task Manager API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14514172"
+	},
+	"item": [
+		{
+			"name": "User Registration / login",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"email\": \"johndoesdddd@example.com\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"johndoesdddd@example.com\",\r\n    \"password\": \"password\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDEyNjkyZTc2NDBiY2ZlZGM0MGY3ZGMyOTFiYzE0Y2IxNzBmYTU5Zjk5MzI4OWE3OWU4MTRjZDY5MzY4YmNjZTUyOWRmMDE3MWMzMGQxMTkiLCJpYXQiOjE3NDIxMTUzOTgsIm5iZiI6MTc0MjExNTM5OCwiZXhwIjoxNzczNjUxMzk4LCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.VviVJX_OTbcYj9UJ3V6lmerx4L6gjMrPRV7N0tbeuqEePzWHUyc_pelpd78_LT9hf8kyp0Jl-W_M8LwM1X6Cm32ELe3buC_erOHHEb_0aG04SK7lRk9kkV6CfEcA5BAfg3ppoEN_S9aVraRWhd5S737Pg6Sh1GyCmR8BA4UmxKGBfDiHeCSbYyFGoPCIXs6BXUZwuRzahT1XFlMszKy9Mzt_cCKT6Y_-lMe0zEQsSk6bzCwOKky8k1H7-_EiYyHDRSlblMISCFs25TsfR1QEJbS2JzZjuEcE6e0fOswSZCEARgFZD7IwMghAejndBll4KMouru-Yj7njDdXPlAtxVHzDhEl1SV97F8baZVQ72TIzGTc4YQVJg2sLAkMdKncoQRfUubOBgBJDLfy0BYYFK6MhyY7esQHj24qkCeqiXFfBxeghjd_CpYuMrP-DFomrG6gj3Rn0l7PJMqMuL1Y2pELwzgTn0GXOXaaL7_sjPOMP2RfCpJSW-k0KVr3HbPPLL7PZw799aSKscByIPUJvxfSWf7P5zicS3J0aq4mTfHaWMVHyrG3q58jbdcD_PYepRfRZff_F6ZRyv55JbWYLUU-3yCBcM2k3KJi4Oq_Hd0k6Hh8b4kGgtvgBNuBqGC27lz7cJnmVekJeA4BEM_QyPrnypPdVzuoM2vQ7-tyTPkw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"johndoe@example.com\",\r\n    \"password\": \"password\"\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "CreateTask",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer   eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmE5YzY5YWJlMWExNzVmM2NmZWY0NTNhYTg5ZGM4ZjYzMDQwNjhlOGI2Y2MzY2U5NGE4ODNlZjAyZDc5MjBhYWQ2NWQzNGZkNDE3ODNkYWUiLCJpYXQiOjE3NDIxMTU1OTcsIm5iZiI6MTc0MjExNTU5NywiZXhwIjoxNzczNjUxNTk3LCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.JEBH-ZECgBDr6apYR_ECLLGnTZlUmAczQ0f9Rb_R3i1YCB2s4iBMPR5vH7OIxYiYIBdYRFo-0CTTM-znpGZwI--Z0gdIASXTW4KaJhoGBhv8DwPabFLmNLLycqebfq_-BKsYiwL9bAVIsM_AD6Rf8LDT2c2JujA1Ud6qwZBz7g4zBigxUM8EECyE0Z9QI5gmArQWd59QGMvMsd6iTruBl-10h82A-0IU5BtdIrDgK_647ISYVhyOFmSnTmnhRPnHzCWgpEZ8mBj2U62qGumuKm_yn8wFnubrfATnTe-ouxzqELwQWHw6RU6e7D-0wacWp_X2ZnZ9jfkzXFLTznjl3NefBkJJXxp_QRsmu91NSqTO1ipAlxr-X1OjLOBRBYgYIU2yu1Yh2Q2J8pujEB_ARkCRBGkoqRIETCoAl4BgObv4fA1i_AtSqXQceU82rEUmo0kmAMt5tQJJZjbzKkinMvQDbafl42BKkGPX2r0tmiBQFfwXwt3lmzIPu2_VOpoLUzN2mDtqjyfqUxo0BVmRcpNrhuQqO--ZuFrGUGgrgNZeceHstBybvYhXN9tCxAXnn2SeSRb6M9Rp-jDiYE5elzAOr9dobZEjtdwg4TsGY-P5uAGK2XeOgoj1jLba0_f2WCFhs-FvHtvllVGj6s4jLkZzo3JRir-rEtgqz1ff8w0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"New Tasssk\",\r\n    \"description\": \"This is a new task description\",\r\n    \"due_date\": \"2025-03-20\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tasks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer   eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmE5YzY5YWJlMWExNzVmM2NmZWY0NTNhYTg5ZGM4ZjYzMDQwNjhlOGI2Y2MzY2U5NGE4ODNlZjAyZDc5MjBhYWQ2NWQzNGZkNDE3ODNkYWUiLCJpYXQiOjE3NDIxMTU1OTcsIm5iZiI6MTc0MjExNTU5NywiZXhwIjoxNzczNjUxNTk3LCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.JEBH-ZECgBDr6apYR_ECLLGnTZlUmAczQ0f9Rb_R3i1YCB2s4iBMPR5vH7OIxYiYIBdYRFo-0CTTM-znpGZwI--Z0gdIASXTW4KaJhoGBhv8DwPabFLmNLLycqebfq_-BKsYiwL9bAVIsM_AD6Rf8LDT2c2JujA1Ud6qwZBz7g4zBigxUM8EECyE0Z9QI5gmArQWd59QGMvMsd6iTruBl-10h82A-0IU5BtdIrDgK_647ISYVhyOFmSnTmnhRPnHzCWgpEZ8mBj2U62qGumuKm_yn8wFnubrfATnTe-ouxzqELwQWHw6RU6e7D-0wacWp_X2ZnZ9jfkzXFLTznjl3NefBkJJXxp_QRsmu91NSqTO1ipAlxr-X1OjLOBRBYgYIU2yu1Yh2Q2J8pujEB_ARkCRBGkoqRIETCoAl4BgObv4fA1i_AtSqXQceU82rEUmo0kmAMt5tQJJZjbzKkinMvQDbafl42BKkGPX2r0tmiBQFfwXwt3lmzIPu2_VOpoLUzN2mDtqjyfqUxo0BVmRcpNrhuQqO--ZuFrGUGgrgNZeceHstBybvYhXN9tCxAXnn2SeSRb6M9Rp-jDiYE5elzAOr9dobZEjtdwg4TsGY-P5uAGK2XeOgoj1jLba0_f2WCFhs-FvHtvllVGj6s4jLkZzo3JRir-rEtgqz1ff8w0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"New Task\",\r\n    \"description\": \"This is a new task description\",\r\n    \"due_date\": \"2025-03-20\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single task details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer   eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmE5YzY5YWJlMWExNzVmM2NmZWY0NTNhYTg5ZGM4ZjYzMDQwNjhlOGI2Y2MzY2U5NGE4ODNlZjAyZDc5MjBhYWQ2NWQzNGZkNDE3ODNkYWUiLCJpYXQiOjE3NDIxMTU1OTcsIm5iZiI6MTc0MjExNTU5NywiZXhwIjoxNzczNjUxNTk3LCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.JEBH-ZECgBDr6apYR_ECLLGnTZlUmAczQ0f9Rb_R3i1YCB2s4iBMPR5vH7OIxYiYIBdYRFo-0CTTM-znpGZwI--Z0gdIASXTW4KaJhoGBhv8DwPabFLmNLLycqebfq_-BKsYiwL9bAVIsM_AD6Rf8LDT2c2JujA1Ud6qwZBz7g4zBigxUM8EECyE0Z9QI5gmArQWd59QGMvMsd6iTruBl-10h82A-0IU5BtdIrDgK_647ISYVhyOFmSnTmnhRPnHzCWgpEZ8mBj2U62qGumuKm_yn8wFnubrfATnTe-ouxzqELwQWHw6RU6e7D-0wacWp_X2ZnZ9jfkzXFLTznjl3NefBkJJXxp_QRsmu91NSqTO1ipAlxr-X1OjLOBRBYgYIU2yu1Yh2Q2J8pujEB_ARkCRBGkoqRIETCoAl4BgObv4fA1i_AtSqXQceU82rEUmo0kmAMt5tQJJZjbzKkinMvQDbafl42BKkGPX2r0tmiBQFfwXwt3lmzIPu2_VOpoLUzN2mDtqjyfqUxo0BVmRcpNrhuQqO--ZuFrGUGgrgNZeceHstBybvYhXN9tCxAXnn2SeSRb6M9Rp-jDiYE5elzAOr9dobZEjtdwg4TsGY-P5uAGK2XeOgoj1jLba0_f2WCFhs-FvHtvllVGj6s4jLkZzo3JRir-rEtgqz1ff8w0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update task",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmE5YzY5YWJlMWExNzVmM2NmZWY0NTNhYTg5ZGM4ZjYzMDQwNjhlOGI2Y2MzY2U5NGE4ODNlZjAyZDc5MjBhYWQ2NWQzNGZkNDE3ODNkYWUiLCJpYXQiOjE3NDIxMTU1OTcsIm5iZiI6MTc0MjExNTU5NywiZXhwIjoxNzczNjUxNTk3LCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.JEBH-ZECgBDr6apYR_ECLLGnTZlUmAczQ0f9Rb_R3i1YCB2s4iBMPR5vH7OIxYiYIBdYRFo-0CTTM-znpGZwI--Z0gdIASXTW4KaJhoGBhv8DwPabFLmNLLycqebfq_-BKsYiwL9bAVIsM_AD6Rf8LDT2c2JujA1Ud6qwZBz7g4zBigxUM8EECyE0Z9QI5gmArQWd59QGMvMsd6iTruBl-10h82A-0IU5BtdIrDgK_647ISYVhyOFmSnTmnhRPnHzCWgpEZ8mBj2U62qGumuKm_yn8wFnubrfATnTe-ouxzqELwQWHw6RU6e7D-0wacWp_X2ZnZ9jfkzXFLTznjl3NefBkJJXxp_QRsmu91NSqTO1ipAlxr-X1OjLOBRBYgYIU2yu1Yh2Q2J8pujEB_ARkCRBGkoqRIETCoAl4BgObv4fA1i_AtSqXQceU82rEUmo0kmAMt5tQJJZjbzKkinMvQDbafl42BKkGPX2r0tmiBQFfwXwt3lmzIPu2_VOpoLUzN2mDtqjyfqUxo0BVmRcpNrhuQqO--ZuFrGUGgrgNZeceHstBybvYhXN9tCxAXnn2SeSRb6M9Rp-jDiYE5elzAOr9dobZEjtdwg4TsGY-P5uAGK2XeOgoj1jLba0_f2WCFhs-FvHtvllVGj6s4jLkZzo3JRir-rEtgqz1ff8w0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Updated Task\",\r\n    \"description\": \"Updated task description\",\r\n    \"status\": \"in-progress\",\r\n    \"due_date\": \"2025-03-25\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete task",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmE5YzY5YWJlMWExNzVmM2NmZWY0NTNhYTg5ZGM4ZjYzMDQwNjhlOGI2Y2MzY2U5NGE4ODNlZjAyZDc5MjBhYWQ2NWQzNGZkNDE3ODNkYWUiLCJpYXQiOjE3NDIxMTU1OTcsIm5iZiI6MTc0MjExNTU5NywiZXhwIjoxNzczNjUxNTk3LCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.JEBH-ZECgBDr6apYR_ECLLGnTZlUmAczQ0f9Rb_R3i1YCB2s4iBMPR5vH7OIxYiYIBdYRFo-0CTTM-znpGZwI--Z0gdIASXTW4KaJhoGBhv8DwPabFLmNLLycqebfq_-BKsYiwL9bAVIsM_AD6Rf8LDT2c2JujA1Ud6qwZBz7g4zBigxUM8EECyE0Z9QI5gmArQWd59QGMvMsd6iTruBl-10h82A-0IU5BtdIrDgK_647ISYVhyOFmSnTmnhRPnHzCWgpEZ8mBj2U62qGumuKm_yn8wFnubrfATnTe-ouxzqELwQWHw6RU6e7D-0wacWp_X2ZnZ9jfkzXFLTznjl3NefBkJJXxp_QRsmu91NSqTO1ipAlxr-X1OjLOBRBYgYIU2yu1Yh2Q2J8pujEB_ARkCRBGkoqRIETCoAl4BgObv4fA1i_AtSqXQceU82rEUmo0kmAMt5tQJJZjbzKkinMvQDbafl42BKkGPX2r0tmiBQFfwXwt3lmzIPu2_VOpoLUzN2mDtqjyfqUxo0BVmRcpNrhuQqO--ZuFrGUGgrgNZeceHstBybvYhXN9tCxAXnn2SeSRb6M9Rp-jDiYE5elzAOr9dobZEjtdwg4TsGY-P5uAGK2XeOgoj1jLba0_f2WCFhs-FvHtvllVGj6s4jLkZzo3JRir-rEtgqz1ff8w0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Updated Task\",\r\n    \"description\": \"Updated task description\",\r\n    \"status\": \"in-progress\",\r\n    \"due_date\": \"2025-03-25\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "CreateTask Comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer   eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmE5YzY5YWJlMWExNzVmM2NmZWY0NTNhYTg5ZGM4ZjYzMDQwNjhlOGI2Y2MzY2U5NGE4ODNlZjAyZDc5MjBhYWQ2NWQzNGZkNDE3ODNkYWUiLCJpYXQiOjE3NDIxMTU1OTcsIm5iZiI6MTc0MjExNTU5NywiZXhwIjoxNzczNjUxNTk3LCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.JEBH-ZECgBDr6apYR_ECLLGnTZlUmAczQ0f9Rb_R3i1YCB2s4iBMPR5vH7OIxYiYIBdYRFo-0CTTM-znpGZwI--Z0gdIASXTW4KaJhoGBhv8DwPabFLmNLLycqebfq_-BKsYiwL9bAVIsM_AD6Rf8LDT2c2JujA1Ud6qwZBz7g4zBigxUM8EECyE0Z9QI5gmArQWd59QGMvMsd6iTruBl-10h82A-0IU5BtdIrDgK_647ISYVhyOFmSnTmnhRPnHzCWgpEZ8mBj2U62qGumuKm_yn8wFnubrfATnTe-ouxzqELwQWHw6RU6e7D-0wacWp_X2ZnZ9jfkzXFLTznjl3NefBkJJXxp_QRsmu91NSqTO1ipAlxr-X1OjLOBRBYgYIU2yu1Yh2Q2J8pujEB_ARkCRBGkoqRIETCoAl4BgObv4fA1i_AtSqXQceU82rEUmo0kmAMt5tQJJZjbzKkinMvQDbafl42BKkGPX2r0tmiBQFfwXwt3lmzIPu2_VOpoLUzN2mDtqjyfqUxo0BVmRcpNrhuQqO--ZuFrGUGgrgNZeceHstBybvYhXN9tCxAXnn2SeSRb6M9Rp-jDiYE5elzAOr9dobZEjtdwg4TsGY-P5uAGK2XeOgoj1jLba0_f2WCFhs-FvHtvllVGj6s4jLkZzo3JRir-rEtgqz1ff8w0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\": \"This is my first comment on this task.\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks/5/comments",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks",
+								"5",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All task comments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer   eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmE5YzY5YWJlMWExNzVmM2NmZWY0NTNhYTg5ZGM4ZjYzMDQwNjhlOGI2Y2MzY2U5NGE4ODNlZjAyZDc5MjBhYWQ2NWQzNGZkNDE3ODNkYWUiLCJpYXQiOjE3NDIxMTU1OTcsIm5iZiI6MTc0MjExNTU5NywiZXhwIjoxNzczNjUxNTk3LCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.JEBH-ZECgBDr6apYR_ECLLGnTZlUmAczQ0f9Rb_R3i1YCB2s4iBMPR5vH7OIxYiYIBdYRFo-0CTTM-znpGZwI--Z0gdIASXTW4KaJhoGBhv8DwPabFLmNLLycqebfq_-BKsYiwL9bAVIsM_AD6Rf8LDT2c2JujA1Ud6qwZBz7g4zBigxUM8EECyE0Z9QI5gmArQWd59QGMvMsd6iTruBl-10h82A-0IU5BtdIrDgK_647ISYVhyOFmSnTmnhRPnHzCWgpEZ8mBj2U62qGumuKm_yn8wFnubrfATnTe-ouxzqELwQWHw6RU6e7D-0wacWp_X2ZnZ9jfkzXFLTznjl3NefBkJJXxp_QRsmu91NSqTO1ipAlxr-X1OjLOBRBYgYIU2yu1Yh2Q2J8pujEB_ARkCRBGkoqRIETCoAl4BgObv4fA1i_AtSqXQceU82rEUmo0kmAMt5tQJJZjbzKkinMvQDbafl42BKkGPX2r0tmiBQFfwXwt3lmzIPu2_VOpoLUzN2mDtqjyfqUxo0BVmRcpNrhuQqO--ZuFrGUGgrgNZeceHstBybvYhXN9tCxAXnn2SeSRb6M9Rp-jDiYE5elzAOr9dobZEjtdwg4TsGY-P5uAGK2XeOgoj1jLba0_f2WCFhs-FvHtvllVGj6s4jLkZzo3JRir-rEtgqz1ff8w0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"New Task\",\r\n    \"description\": \"This is a new task description\",\r\n    \"due_date\": \"2025-03-20\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tasks/5/comments",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tasks",
+								"5",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete comments",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer   eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmE5YzY5YWJlMWExNzVmM2NmZWY0NTNhYTg5ZGM4ZjYzMDQwNjhlOGI2Y2MzY2U5NGE4ODNlZjAyZDc5MjBhYWQ2NWQzNGZkNDE3ODNkYWUiLCJpYXQiOjE3NDIxMTU1OTcsIm5iZiI6MTc0MjExNTU5NywiZXhwIjoxNzczNjUxNTk3LCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.JEBH-ZECgBDr6apYR_ECLLGnTZlUmAczQ0f9Rb_R3i1YCB2s4iBMPR5vH7OIxYiYIBdYRFo-0CTTM-znpGZwI--Z0gdIASXTW4KaJhoGBhv8DwPabFLmNLLycqebfq_-BKsYiwL9bAVIsM_AD6Rf8LDT2c2JujA1Ud6qwZBz7g4zBigxUM8EECyE0Z9QI5gmArQWd59QGMvMsd6iTruBl-10h82A-0IU5BtdIrDgK_647ISYVhyOFmSnTmnhRPnHzCWgpEZ8mBj2U62qGumuKm_yn8wFnubrfATnTe-ouxzqELwQWHw6RU6e7D-0wacWp_X2ZnZ9jfkzXFLTznjl3NefBkJJXxp_QRsmu91NSqTO1ipAlxr-X1OjLOBRBYgYIU2yu1Yh2Q2J8pujEB_ARkCRBGkoqRIETCoAl4BgObv4fA1i_AtSqXQceU82rEUmo0kmAMt5tQJJZjbzKkinMvQDbafl42BKkGPX2r0tmiBQFfwXwt3lmzIPu2_VOpoLUzN2mDtqjyfqUxo0BVmRcpNrhuQqO--ZuFrGUGgrgNZeceHstBybvYhXN9tCxAXnn2SeSRb6M9Rp-jDiYE5elzAOr9dobZEjtdwg4TsGY-P5uAGK2XeOgoj1jLba0_f2WCFhs-FvHtvllVGj6s4jLkZzo3JRir-rEtgqz1ff8w0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
