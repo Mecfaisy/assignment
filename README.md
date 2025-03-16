@@ -1,78 +1,213 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+=============================================
+        Task Management API - Laravel 6
+=============================================
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+This is a Laravel 6-based Task Management API that allows users to 
+create, update, delete, and manage tasks. Each task can be assigned 
+to a user, and comments can be added. The task owner will receive 
+an email notification when new comments are added.
 
-## About Laravel
+---------------------------------------------
+📌 FEATURES:
+---------------------------------------------
+✅ User Authentication (Register, Login, Logout)  
+✅ Task Management (CRUD Operations)  
+✅ Assign Tasks to Users  
+✅ Comment System on Tasks  
+✅ Email Notification on New Comments (Using Queues)  
+✅ Secure API with Token Authentication  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---------------------------------------------
+🚀 INSTALLATION & SETUP:
+---------------------------------------------
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1️⃣ CLONE THE REPOSITORY:
+--------------------------
+git clone https://github.com/your-repository.git  
+cd your-repository
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+2️⃣ INSTALL DEPENDENCIES:
+--------------------------
+composer install  
 
-## Learning Laravel
+3️⃣ SET UP ENVIRONMENT FILE:
+-----------------------------
+Rename `.env.example` to `.env` and update database credentials:
+DB_CONNECTION=mysql  
+DB_HOST=127.0.0.1  
+DB_PORT=3306  
+DB_DATABASE=your_database_name  
+DB_USERNAME=your_database_user  
+DB_PASSWORD=your_database_password  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+4️⃣ GENERATE APPLICATION KEY:
+------------------------------
+php artisan key:generate  
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+5️⃣ SET UP DATABASE:
+--------------------
+php artisan migrate  
 
-## Laravel Sponsors
+6️⃣ INSTALL LARAVEL PASSPORT:
+------------------------------
+php artisan passport:install  
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Then update `config/auth.php` file:
+'guards' => [  
+    'api' => [  
+        'driver' => 'passport',  
+        'provider' => 'users',  
+    ],  
+],
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+7️⃣ SEED DUMMY DATA (OPTIONAL):
+-------------------------------
+php artisan db:seed  
 
-## Contributing
+8️⃣ START THE SERVER:
+---------------------
+php artisan serve  
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---------------------------------------------
+🔑 API AUTHENTICATION:
+---------------------------------------------
 
-## Code of Conduct
+All requests require a Bearer Token.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1️⃣ REGISTER USER:
+------------------
+POST /api/register  
+Body (JSON):
+{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "password",
+    "password_confirmation": "password"
+}
 
-## Security Vulnerabilities
+2️⃣ LOGIN USER:
+---------------
+POST /api/login  
+Body (JSON):
+{
+    "email": "john@example.com",
+    "password": "password"
+}
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Response:
+{
+    "token": "ACCESS_TOKEN"
+}
 
-## License
+3️⃣ LOGOUT USER:
+----------------
+POST /api/logout  
+Headers:
+Authorization: Bearer ACCESS_TOKEN
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---------------------------------------------
+📝 TASK ENDPOINTS:
+---------------------------------------------
+
+🔹 CREATE TASK:
+POST /api/tasks  
+Headers: Authorization + JSON  
+Body:
+{
+    "title": "New Task",
+    "description": "Task details",
+    "due_date": "2025-03-20"
+}
+
+🔹 GET ALL TASKS:
+GET /api/tasks  
+Headers: Authorization  
+
+🔹 GET SINGLE TASK:
+GET /api/tasks/{task_id}  
+Headers: Authorization  
+
+🔹 UPDATE TASK:
+PUT /api/tasks/{task_id}  
+Headers: Authorization + JSON  
+Body:
+{
+    "title": "Updated Task",
+    "description": "Updated details",
+    "status": "in-progress",
+    "due_date": "2025-03-25"
+}
+
+🔹 DELETE TASK:
+DELETE /api/tasks/{task_id}  
+Headers: Authorization  
+
+---------------------------------------------
+💬 COMMENT ENDPOINTS:
+---------------------------------------------
+
+🔹 ADD COMMENT TO TASK:
+POST /api/tasks/{task_id}/comments  
+Headers: Authorization + JSON  
+Body:
+{
+    "comment": "This is a comment"
+}
+
+🔹 GET COMMENTS FOR TASK:
+GET /api/tasks/{task_id}/comments  
+Headers: Authorization  
+
+🔹 UPDATE COMMENT:
+PUT /api/tasks/{task_id}/comments/{comment_id}  
+Headers: Authorization + JSON  
+Body:
+{
+    "comment": "Updated comment"
+}
+
+🔹 DELETE COMMENT:
+DELETE /api/tasks/{task_id}/comments/{comment_id}  
+Headers: Authorization  
+
+---------------------------------------------
+📩 EMAIL NOTIFICATIONS:
+---------------------------------------------
+When a new comment is added to a task, the **task owner** will 
+receive an **email notification**.
+
+Run the queue worker:
+php artisan queue:work  
+
+---------------------------------------------
+📮 IMPORTING POSTMAN COLLECTION:
+---------------------------------------------
+To test the API using **Postman**:
+1. Open **Postman**.
+2. Click **Import**.
+3. Select the **Postman collection file**: `task_manager.postman_collection.json`
+4. Set **Base URL** as:
+   http://127.0.0.1:8000/api
+
+---------------------------------------------
+🛠 TROUBLESHOOTING:
+---------------------------------------------
+
+🔸 ISSUE: `404 Not Found` for API Endpoints  
+✔ Ensure you are using `http://127.0.0.1:8000/api/{endpoint}`  
+✔ Run `php artisan route:list` to verify available routes  
+
+🔸 ISSUE: Passport Not Working  
+✔ Run `php artisan passport:install`  
+✔ Add `Passport::routes();` in `AuthServiceProvider.php`  
+✔ Clear cache with `php artisan cache:clear`  
+
+🔸 ISSUE: Queue Not Processing Emails  
+✔ Start the queue worker with `php artisan queue:work`  
+✔ Check mail settings in `.env`  
+
+---------------------------------------------
+📌 CONCLUSION:
+---------------------------------------------
+Your **Task Management API** is now fully functional! 🚀  
+If you encounter any issues, feel free to ask! 😊
